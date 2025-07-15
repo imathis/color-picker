@@ -3,6 +3,8 @@ import { ColorModel } from "../types";
 import { useColorStore } from "../utils/colorStore";
 import { background } from "../utils/gradientUtils";
 import { Input } from "./Inputs";
+import { useTouchSlider } from "../hooks/useTouchSlider";
+import { useTouchDetection } from "../hooks/useTouchDetection";
 
 interface ColorSliderProps {
   name: string;
@@ -39,9 +41,21 @@ export const ColorSlider: React.FC<ColorSliderProps> = ({
     (state) => state[name as keyof typeof state],
   );
 
+  // Touch detection and enhancement
+  const { needsEnhancedTouch } = useTouchDetection();
+  const sliderRef = React.useRef<HTMLInputElement>(null);
+
   const handleChange = ([name, value]: [string, string]) => {
     onChange(name, value, model);
   };
+
+  // Enhanced touch change handler
+  const handleTouchChange = React.useCallback(
+    (value: number) => {
+      onChange(name, String(value), model);
+    },
+    [name, model, onChange]
+  );
 
   // Extract specific props to avoid conflicts
   const { max = 100, min = 0, step = 1, style, ...restProps } = props;
@@ -55,10 +69,23 @@ export const ColorSlider: React.FC<ColorSliderProps> = ({
   const percentage =
     ((numericValue - numericMin) / (numericMax - numericMin)) * 100;
 
+  // Enhanced touch handling for devices that need it
+  // This provides better touch responsiveness and prevents scroll conflicts
+  useTouchSlider({
+    min: numericMin,
+    max: numericMax,
+    value: numericValue,
+    step: Number(step),
+    onChange: handleTouchChange,
+    sliderRef,
+    enabled: needsEnhancedTouch,
+  });
+
   return (
     <div className="color-slider">
       <div className="slider-track" style={{ position: "relative" }}>
         <Input
+          ref={sliderRef}
           type="range"
           data-model={model}
           name={name}
