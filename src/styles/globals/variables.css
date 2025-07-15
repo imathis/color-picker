@@ -1,0 +1,95 @@
+/**
+ * CSS Custom Properties (Variables)
+ * All color picker theme variables and dynamic colors
+ */
+
+:root {
+  /* Track/Slider Background */
+  --picker-track-bg: rgba(0, 0, 0, 0.5);
+  --picker-track-check: rgba(255, 255, 255, 0.2);
+  --picker-track-check-alt: transparent;
+  --picker-track-check-gradient: linear-gradient(
+    45deg,
+    var(--picker-track-check) 25%,
+    var(--picker-track-check-alt) 25%,
+    var(--picker-track-check-alt) 75%,
+    var(--picker-track-check) 75%,
+    var(--picker-track-check)
+  );
+  --picker-track-box-shadow:
+    rgba(0, 0, 0, 0.3) 0 1px inset, rgba(255, 255, 255, 0.2) 0 1px;
+
+  /* Slider Styles */
+  --picker-slider-box-shadow:
+    rgba(255, 255, 255, 0.3) 0 1px 1px inset, rgba(0, 0, 0, 0.6) 0 0 0 1px;
+
+  /* Input Field Styles */
+  --picker-input-box-shadow:
+    rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+  --picker-input-bg: rgba(0, 0, 0, 0.3);
+  --picker-input-color: rgba(255, 255, 255, 0.8);
+
+  /* Input Validation States */
+  --picker-input-invalid-bg: rgba(102, 0, 0, 0.3);
+  --picker-input-invalid-box-shadow:
+    rgba(255, 127, 127, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+  --picker-input-invalid-color: #ff0f0f;
+
+  --picker-input-copied-bg: rgba(10, 102, 0, 0.3);
+  --picker-input-copied-box-shadow:
+    rgba(140, 255, 127, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+  --picker-input-copied-color: #27ff0f;
+
+  /* Slider Thumb Styles */
+  --picker-thumb-box-shadow:
+    0 0 0 3px
+      oklch(
+        var(--picker-oklchLightness) var(--picker-oklchChroma)
+          var(--picker-oklchHue) / 0.3
+      )
+      inset,
+    0 0 0 3px rgba(255, 255, 255, 1) inset, 0 0 0 4px rgb(0 0 0 / 0.5) inset,
+    0 0 0 1px rgb(0 0 0 / 0.5), 0 0 0 1px rgb(0 0 0 / 0.3);
+
+  --picker-thumb-box-shadow-hover:
+    0 0 0 3px
+      oklch(
+        var(--picker-oklchLightness) var(--picker-oklchChroma)
+          var(--picker-oklchHue) / 0.1
+      )
+      inset,
+    0 0 0 3px rgba(255, 255, 255, 1) inset, 0 0 0 4px rgb(0 0 0 / 0.5) inset,
+    0 0 0 1px rgb(0 0 0 / 0.5);
+
+  --picker-thumb-box-shadow-focus:
+    0 0 0 3px
+      oklch(
+        var(--picker-oklchLightness) var(--picker-oklchChroma)
+          var(--picker-oklchHue) / 0.1
+      )
+      inset,
+    0 0 0 3px rgba(255, 255, 255, 1) inset, 0 0 0 4px rgb(0 0 0 / 0.5) inset,
+    0 0 0 1px rgb(0 0 0 / 0.5), 0 0 0 1px rgb(0 0 0 / 1),
+    0 0 0 4px hwb(var(--picker-hue) 25% 0%), 0 0 0 5px rgb(0 0 0 / 0.3);
+
+  /* Dynamic Accent Colors */
+  --picker-dynamic-accent: hwb(
+    var(--picker-hue) calc(clamp(0, var(--picker-whiteness), 55) * 1%)
+      calc(clamp(0, var(--picker-blackness), 15) * 1%)
+  );
+  --picker-dynamic-accent-lightened: color-mix(
+    in oklab,
+    #666 30%,
+    hwb(
+      var(--picker-hue) calc(clamp(0, var(--picker-whiteness), 55) * 1%)
+        calc(clamp(0, var(--picker-blackness), 50) * 1%)
+    )
+  );
+  --picker-dynamic-accent-footer: hwb(var(--picker-hue) 25% 0%);
+  --picker-input-focus-ring: hwb(var(--picker-hue) 25% 0%);
+
+  /* Visual Effects */
+  --picker-dark-stripe: rgba(0, 0, 0, 0.1);
+  --picker-text-shadow-color: rgba(0, 0, 0, 0.5);
+  --picker-text-shadow: var(--picker-text-shadow-color) 0 2px 1px;
+}

@@ -1,0 +1,44 @@
+/**
+ * Color Swatch Component Styles
+ */
+
+.color-swatch {
+  position: relative;
+  box-shadow: var(--picker-slider-box-shadow);
+  overflow: hidden;
+  height: 116px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  text-align: center;
+  background-color: var(--picker-color-srgb);
+}
+
+.color-swatch-p3 {
+  background-color: var(--picker-oklch);
+  position: absolute;
+  display: grid;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 50%;
+}
+
+.color-swatch-srgb {
+  position: absolute;
+  display: grid;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+  background-color: var(--picker-color-srgb);
+}
+
+.color-swatch-label {
+  background: oklch(0 0 0 / 0.5);
+  display: inline-block;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  padding: 2px 8px;
+  place-self: center;
+  color: #fff;
+}

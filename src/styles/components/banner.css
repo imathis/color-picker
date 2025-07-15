@@ -1,0 +1,111 @@
+/**
+ * Banner/Header Component Styles
+ */
+
+.banner {
+  display: grid;
+  gap: 8px;
+  text-transform: uppercase;
+  margin: 10px 0 15px;
+  font-weight: 200;
+}
+
+.banner h1 {
+  color: #fff;
+  font-size: 3.2em;
+  line-height: 0.8em;
+  margin: -5px 0 5px;
+  font-family: "Raleway", serif;
+  font-weight: 800;
+  line-height: 1em;
+  text-shadow:
+    var(--picker-dynamic-accent-lightened) 0px 1px 0px,
+    var(--picker-dynamic-accent-lightened) 0px 2px 0px,
+    var(--picker-dynamic-accent-lightened) 0px 3px 0px,
+    var(--picker-dynamic-accent-lightened) 0px 4px 0px,
+    var(--picker-dynamic-accent-lightened) 0px 5px 0px,
+    rgba(0, 0, 0, 0.2) 0px 5px 1px,
+    rgba(0, 0, 0, 0.3) 0px 0px 10px,
+    rgba(0, 0, 0, 0.4) 0px 3px 5px,
+    rgba(0, 0, 0, 0.5) 0px 6px 5px;
+}
+
+.preamble {
+  font-size: 1.25em;
+  letter-spacing: 0.1em;
+  text-shadow: var(--picker-text-shadow);
+}
+
+.preamble:before,
+.preamble:after {
+  width: 4.5em;
+  height: 0px;
+  display: inline-block;
+  border-bottom: 1px solid currentColor;
+  box-shadow: var(--picker-text-shadow-color) 0 1px 1px;
+  position: relative;
+  top: -0.3em;
+  margin: 0 0.5em;
+}
+
+.credit {
+  font-size: 0.7em;
+  color: rgba(255, 255, 255, 0.3);
+  font-style: normal;
+  display: block;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 0.4em;
+  background: var(--picker-dynamic-accent);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+@keyframes rainbow-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1000px 1000px;
+  }
+}
+
+.credit a {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.credit a:hover {
+  background-image: var(--picker-rainbow);
+  background-repeat: repeat;
+  background-size: 100%;
+  text-shadow: none;
+  color: transparent;
+  animation: rainbow-move 15s linear infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* Responsive Adjustments */
+@media screen and (min-width: 550px) {
+  .banner h1 {
+    font-size: 3.8em;
+  }
+}
+
+@media screen and (min-width: 740px) {
+  .preamble:before,
+  .preamble:after {
+    content: "";
+  }
+}
+
+/* Light Theme Adjustments */
+@media (prefers-color-scheme: light) {
+  .credit {
+    color: rgba(0, 0, 0, 0.3);
+  }
+  .credit a {
+    color: rgba(0, 0, 0, 0.4);
+  }
+}
