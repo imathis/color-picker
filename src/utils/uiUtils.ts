@@ -50,17 +50,20 @@ function debounce<T extends (...args: unknown[]) => void>(
 }
 
 // Debounced URL update function - uses hex for sRGB models, OKLCH for wide gamut
-export const updateUrl = debounce((colorObject: ColorObject, useOklch: boolean = false) => {
-  let url: string;
-  if (useOklch) {
-    // Format: #L,C,H,A (e.g., #0.7,0.1,154,1)
-    url = `#${colorObject.oklchLightness.toFixed(3)},${colorObject.oklchChroma.toFixed(3)},${colorObject.oklchHue.toFixed(3)},${colorObject.alpha.toFixed(3)}`;
-  } else {
-    // Use hex format for sRGB colors
-    url = colorObject.hex;
-  }
-  window.history.replaceState({}, "", url);
-}, 100); // 100ms delay
+export const updateUrl = debounce(
+  (colorObject: ColorObject, useOklch: boolean = false) => {
+    let url: string;
+    if (useOklch) {
+      // Format: #L,C,H,A (e.g., #0.7,0.1,154,1)
+      url = `#${colorObject.oklchLightness.toFixed(3)},${colorObject.oklchChroma.toFixed(3)},${colorObject.oklchHue.toFixed(3)},${colorObject.alpha.toFixed(3)}`;
+    } else {
+      // Use hex format for sRGB colors
+      url = colorObject.hex;
+    }
+    window.history.replaceState({}, "", url);
+  },
+  100,
+); // 100ms delay
 
 /**
  * Updates HSV gradient CSS variables with the current color.
@@ -155,10 +158,15 @@ export const updateUiColor = (
   activeModel?: string,
 ) => {
   updateModelVars(color);
-  setRoot("color", color.rgb);
-  
+  // Since HSV isn't a web color use use RGB
+  if (color.model === "hsv" || color.model === "oklch") {
+    setRoot("color-srgb", color.rgb);
+  } else {
+    setRoot("color-srgb", color[color.model]);
+  }
+
   // Use OKLCH URL format if actively adjusting OKLCH, otherwise use hex
-  const useOklch = activeModel === 'oklch' || color.model === 'oklch';
+  const useOklch = activeModel === "oklch" || color.model === "oklch";
   updateUrl(color, useOklch);
 
   // Only generate gradients if we're in a browser environment and DOM is ready

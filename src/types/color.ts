@@ -73,7 +73,13 @@ export interface OKLCHColor {
 /**
  * Union type for color parts (HSL, HSV, HWB, RGB, HEX, or OKLCH).
  */
-export type ColorParts = HSLColor | HSVColor | HWBColor | RGBColor | HEXColor | OKLCHColor;
+export type ColorParts =
+  | HSLColor
+  | HSVColor
+  | HWBColor
+  | RGBColor
+  | HEXColor
+  | OKLCHColor;
 
 /**
  * Interface for a comprehensive color object.

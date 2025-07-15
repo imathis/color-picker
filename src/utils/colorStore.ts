@@ -1,6 +1,6 @@
 import { create } from "zustand/react";
 import { persist } from "zustand/middleware";
-import { ColorModel, ColorObject } from "../types";
+import { ColorModel, ColorObject, ColorParts } from "../types";
 import { createColorObject } from "../utils/colorConversion";
 import {
   colorModels,
@@ -29,7 +29,10 @@ export interface ColorState {
   gamutGaps: boolean; // Toggle for gradient behavior: false = smooth (browser fallback), true = hard cutoffs
   visibleModels: Record<keyof ColorModel, boolean>; // Which color models are visible
   colorObject: ColorObject; // Add ColorObject to the state
-  setColor: (c: string | ColorObject, model?: keyof ColorModel | "hex") => ColorObject;
+  setColor: (
+    c: string | ColorObject,
+    model?: keyof ColorModel | "hex",
+  ) => ColorObject;
   adjustColor: (args: {
     [key: string]: string;
     model: keyof ColorModel | "hex";
@@ -83,7 +86,10 @@ export const useColorStore = create<ColorState>()(
         }, // Default visible models
         colorObject: initialColorObject, // Initialize colorObject
         colorModels,
-        setColor: (c: string | ColorObject, model?: keyof ColorModel | "hex") => {
+        setColor: (
+          c: string | ColorObject,
+          model?: keyof ColorModel | "hex",
+        ) => {
           // Optional model parameter enables precision preservation for OKLCH colors
           // When provided, createColorObject uses it to bypass RGB conversion
           const newColor: ColorObject =
@@ -177,9 +183,10 @@ export const useColorStore = create<ColorState>()(
         gamutGaps: state.gamutGaps,
         visibleModels: state.visibleModels,
         // Persist the URL format: hex for sRGB, OKLCH URL format for wide gamut
-        persistedColor: state.model === "oklch" 
-          ? `${state.oklchLightness},${state.oklchChroma},${state.oklchHue},${state.alpha}`
-          : state.hex.substring(1), // Remove # from hex
+        persistedColor:
+          state.model === "oklch"
+            ? `${state.oklchLightness},${state.oklchChroma},${state.oklchHue},${state.alpha}`
+            : state.hex.substring(1), // Remove # from hex
       }),
       onRehydrateStorage: () => {
         // Return a function that runs after rehydration
@@ -187,7 +194,7 @@ export const useColorStore = create<ColorState>()(
           if (error) {
             console.warn("Failed to rehydrate state:", error);
           }
-          
+
           // Only restore persisted color if there's no URL
           // Set the URL hash and let normal URL initialization handle the rest
           if (!window.location.hash && state && state.persistedColor) {
@@ -206,11 +213,11 @@ export const useColorStore = create<ColorState>()(
 export const initializeColorFromUrl = () => {
   const store = useColorStore.getState();
   const hash = window.location.hash;
-  
+
   if (!hash) return;
-  
+
   let urlColor: string | ColorObject | null = null;
-  
+
   // OKLCH URL FORMAT: Check for precision-preserving OKLCH format (#L,C,H,A)
   if (colorPatterns.oklchUrl.test(hash)) {
     const oklchValues = parseOklchUrl(hash);
@@ -218,9 +225,9 @@ export const initializeColorFromUrl = () => {
       const [lightness, chroma, hue, alpha] = oklchValues;
       urlColor = createColorObject(
         `oklch(${lightness} ${chroma} ${hue} / ${alpha})`,
-        "oklch" // Preserve precision
+        "oklch", // Preserve precision
       );
-      
+
       // Auto-enable OKLCH picker for OKLCH URLs
       const currentVisibleModels = store.visibleModels;
       if (!currentVisibleModels.oklch) {
@@ -232,7 +239,7 @@ export const initializeColorFromUrl = () => {
   else if (colorPatterns.hex.test(hash)) {
     urlColor = hash;
   }
-  
+
   if (urlColor) {
     store.setColor(urlColor);
   }
