@@ -4,61 +4,61 @@
  */
 
 :root {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    avenir next,
-    avenir,
-    segoe ui,
-    helvetica neue,
-    helvetica,
-    Cantarell,
-    Ubuntu,
-    roboto,
-    noto,
-    arial,
-    sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+	font-family:
+		-apple-system,
+		BlinkMacSystemFont,
+		avenir next,
+		avenir,
+		segoe ui,
+		helvetica neue,
+		helvetica,
+		Cantarell,
+		Ubuntu,
+		roboto,
+		noto,
+		arial,
+		sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+	color-scheme: light dark;
+	color: rgba(255, 255, 255, 0.87);
+	background-color: #242424;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
 }
 
 @font-face {
-  font-family: system-mono;
-  font-style: normal;
-  font-weight: 400;
-  src:
-    local(".SFNS-Mono"), local("ui-monospace"), local("Cascadia Mono"),
-    local("Segoe UI Mono"), local("Ubuntu Mono"), local("Roboto Mono"),
-    local("Menlo"), local("Monaco"), local("Consolas"), local("monospace");
+	font-family: system-mono;
+	font-style: normal;
+	font-weight: 400;
+	src:
+		local(".SFNS-Mono"), local("ui-monospace"), local("Cascadia Mono"),
+		local("Segoe UI Mono"), local("Ubuntu Mono"), local("Roboto Mono"),
+		local("Menlo"), local("Monaco"), local("Consolas"), local("monospace");
 }
 
 code {
-  font-family: system-mono;
+	font-family: system-mono;
 }
 
 code,
 h3 {
-  color: var(--picker-dynamic-accent-footer);
+	color: var(--picker-dynamic-accent-footer);
 }
 
 abbr {
-  opacity: 0.8;
-  cursor: help;
-  border-bottom: 1px dotted;
-  text-decoration: none;
+	opacity: 0.8;
+	cursor: help;
+	border-bottom: 1px dotted;
+	text-decoration: none;
 }
 
 abbr:hover {
-  opacity: 1;
-  mix-blend-mode: screen;
+	opacity: 1;
+	mix-blend-mode: screen;
 }

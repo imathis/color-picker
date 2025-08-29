@@ -3,225 +3,225 @@
  */
 
 .color-slider {
-  display: flex;
-  gap: 8px;
-  flex-direction: column;
-  max-width: 100%;
+	display: flex;
+	gap: 8px;
+	flex-direction: column;
+	max-width: 100%;
 }
 
 /* Slider Track Background */
 .slider-track {
-  height: 35px;
-  background-image:
-    var(--picker-track-check-gradient), var(--picker-track-check-gradient);
-  background-size: 20px 20px;
-  background-position:
-    0px 0px,
-    10px 10px;
-  border-radius: 15px;
-  position: relative;
+	height: 35px;
+	background-image:
+		var(--picker-track-check-gradient), var(--picker-track-check-gradient);
+	background-size: 20px 20px;
+	background-position:
+		0px 0px,
+		10px 10px;
+	border-radius: 15px;
+	position: relative;
 }
 
 .slider-track::after {
-  content: "";
-  z-index: -1;
-  background: var(--picker-track-bg);
-  position: absolute;
-  top: -3px;
-  bottom: -3px;
-  left: -4px;
-  right: -4px;
-  border-radius: 15px;
-  box-shadow: var(--picker-track-box-shadow);
+	content: "";
+	z-index: -1;
+	background: var(--picker-track-bg);
+	position: absolute;
+	top: -3px;
+	bottom: -3px;
+	left: -4px;
+	right: -4px;
+	border-radius: 15px;
+	box-shadow: var(--picker-track-box-shadow);
 }
 
 /* Range Input Base Styles */
 input[type="range"] {
-  height: 35px;
-  -webkit-appearance: none;
-  appearance: none;
-  box-shadow: var(--picker-slider-box-shadow);
-  border-radius: 8px;
-  width: 100%;
-  margin: 0;
-  /* Improve touch handling on mobile */
-  touch-action: pan-y pinch-zoom; /* Allow vertical scroll but capture horizontal swipes */
-  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on iOS */
-  /* Improve touch responsiveness */
-  user-select: none;
-  -webkit-user-select: none;
-  /* Ensure touch events are captured properly */
-  pointer-events: auto;
+	height: 35px;
+	-webkit-appearance: none;
+	appearance: none;
+	box-shadow: var(--picker-slider-box-shadow);
+	border-radius: 8px;
+	width: 100%;
+	margin: 0;
+	/* Improve touch handling on mobile */
+	touch-action: pan-y pinch-zoom; /* Allow vertical scroll but capture horizontal swipes */
+	-webkit-tap-highlight-color: transparent; /* Remove tap highlight on iOS */
+	/* Improve touch responsiveness */
+	user-select: none;
+	-webkit-user-select: none;
+	/* Ensure touch events are captured properly */
+	pointer-events: auto;
 }
 
 input[type="range"]:focus {
-  outline: none;
+	outline: none;
 }
 
 input[type="range"][disabled] {
-  opacity: 0.5;
+	opacity: 0.5;
 }
 
 /* Additional visual feedback for touch devices */
 @media (hover: none) and (pointer: coarse) {
-  input[type="range"]:active {
-    transform: scale(1.02);
-    transition: transform 0.1s ease;
-  }
+	input[type="range"]:active {
+		transform: scale(1.02);
+		transition: transform 0.1s ease;
+	}
 }
 
 /* Range Track Styles */
 input[type="range"]::-webkit-slider-runnable-track {
-  -webkit-appearance: none;
-  appearance: none;
-  box-shadow: none;
-  border: none;
-  background: transparent;
-  cursor: ew-resize;
+	-webkit-appearance: none;
+	appearance: none;
+	box-shadow: none;
+	border: none;
+	background: transparent;
+	cursor: ew-resize;
 }
 
 input[type="range"]::-moz-range-track {
-  -webkit-appearance: none;
-  appearance: none;
-  box-shadow: none;
-  border: none;
-  background: transparent;
-  cursor: ew-resize;
+	-webkit-appearance: none;
+	appearance: none;
+	box-shadow: none;
+	border: none;
+	background: transparent;
+	cursor: ew-resize;
 }
 
 input[type="range"]::-ms-track {
-  -webkit-appearance: none;
-  appearance: none;
-  box-shadow: none;
-  border: none;
-  background: transparent;
-  cursor: ew-resize;
+	-webkit-appearance: none;
+	appearance: none;
+	box-shadow: none;
+	border: none;
+	background: transparent;
+	cursor: ew-resize;
 }
 
 /* Invisible Native Thumbs (for hit area) */
 /* Default: Touch-optimized for coarse pointer devices */
 input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 44px;
-  width: 44px;
-  opacity: 0.01;
-  cursor: ew-resize;
-  position: relative;
-  z-index: 20; /* Ensure thumb is above track */
+	-webkit-appearance: none;
+	height: 44px;
+	width: 44px;
+	opacity: 0.01;
+	cursor: ew-resize;
+	position: relative;
+	z-index: 20; /* Ensure thumb is above track */
 }
 
 input[type="range"]::-moz-range-thumb {
-  -moz-appearance: none;
-  height: 44px;
-  width: 44px;
-  opacity: 0.01;
-  cursor: ew-resize;
-  position: relative;
-  z-index: 20;
+	-moz-appearance: none;
+	height: 44px;
+	width: 44px;
+	opacity: 0.01;
+	cursor: ew-resize;
+	position: relative;
+	z-index: 20;
 }
 
 input[type="range"]::-ms-thumb {
-  -ms-appearance: none;
-  height: 44px;
-  width: 44px;
-  opacity: 0.01;
-  cursor: ew-resize;
-  position: relative;
-  z-index: 20;
+	-ms-appearance: none;
+	height: 44px;
+	width: 44px;
+	opacity: 0.01;
+	cursor: ew-resize;
+	position: relative;
+	z-index: 20;
 }
 
 /* Custom Visual Handle */
 .custom-slider-handle {
-  position: absolute;
-  top: 50%;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-  z-index: 10;
-  cursor: ew-resize;
-  transition: transform 0.2s;
+	position: absolute;
+	top: 50%;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+	z-index: 10;
+	cursor: ew-resize;
+	transition: transform 0.2s;
 }
 
 .custom-slider-handle::after {
-  content: "";
-  position: absolute;
-  height: 32px;
-  top: -16px;
-  width: 8px;
-  left: -4px;
-  border-radius: 4px;
-  scale: 1.3;
-  transition:
-    scale 0.2s,
-    box-shadow 0.2s,
-    border-radius 0.2s;
-  box-shadow: var(--picker-thumb-box-shadow);
+	content: "";
+	position: absolute;
+	height: 32px;
+	top: -16px;
+	width: 8px;
+	left: -4px;
+	border-radius: 4px;
+	scale: 1.3;
+	transition:
+		scale 0.2s,
+		box-shadow 0.2s,
+		border-radius 0.2s;
+	box-shadow: var(--picker-thumb-box-shadow);
 }
 
 /* Handle Hover/Focus/Active States */
 input:hover + .custom-slider-handle::after,
 input:focus + .custom-slider-handle::after,
 input:active + .custom-slider-handle::after {
-  width: 32px;
-  left: -16px;
-  rotate: 45deg;
-  scale: 1.1;
+	width: 32px;
+	left: -16px;
+	rotate: 45deg;
+	scale: 1.1;
 }
 
 input:hover + .custom-slider-handle::after {
-  box-shadow: var(--picker-thumb-box-shadow-hover);
+	box-shadow: var(--picker-thumb-box-shadow-hover);
 }
 
 input:focus + .custom-slider-handle::after {
-  box-shadow: var(--picker-thumb-box-shadow-focus);
-  transition-duration: 0s;
+	box-shadow: var(--picker-thumb-box-shadow-focus);
+	transition-duration: 0s;
 }
 
 /* Responsive Adjustments */
 @media screen and (min-width: 550px) {
-  input[type="range"],
-  .slider-track {
-    height: 20px;
-  }
+	input[type="range"],
+	.slider-track {
+		height: 20px;
+	}
 
-  .color-slider {
-    display: grid;
-    grid-auto-columns: minmax(180px, 500px) 65px;
-    grid-auto-flow: column;
-    align-items: center;
-  }
+	.color-slider {
+		display: grid;
+		grid-auto-columns: minmax(180px, 500px) 65px;
+		grid-auto-flow: column;
+		align-items: center;
+	}
 
-  .custom-slider-handle::after {
-    height: 20px;
-    top: -10px;
-    width: 8px;
-    left: -4px;
-  }
+	.custom-slider-handle::after {
+		height: 20px;
+		top: -10px;
+		width: 8px;
+		left: -4px;
+	}
 
-  input:hover + .custom-slider-handle::after,
-  input:focus + .custom-slider-handle::after,
-  input:active + .custom-slider-handle::after {
-    width: 20px;
-    left: -10px;
-    rotate: 45deg;
-    scale: 1.1;
-  }
+	input:hover + .custom-slider-handle::after,
+	input:focus + .custom-slider-handle::after,
+	input:active + .custom-slider-handle::after {
+		width: 20px;
+		left: -10px;
+		rotate: 45deg;
+		scale: 1.1;
+	}
 }
 
 /* Precision Devices: Override for fine pointer devices (mouse, trackpad) */
 @media (hover: hover) and (pointer: fine) {
-  input[type="range"]::-webkit-slider-thumb {
-    width: 1px; /* Exact alignment for precision */
-    height: 30px; /* Smaller but still usable hit area */
-  }
+	input[type="range"]::-webkit-slider-thumb {
+		width: 1px; /* Exact alignment for precision */
+		height: 30px; /* Smaller but still usable hit area */
+	}
 
-  input[type="range"]::-moz-range-thumb {
-    width: 1px;
-    height: 30px;
-  }
+	input[type="range"]::-moz-range-thumb {
+		width: 1px;
+		height: 30px;
+	}
 
-  input[type="range"]::-ms-thumb {
-    width: 1px;
-    height: 30px;
-  }
+	input[type="range"]::-ms-thumb {
+		width: 1px;
+		height: 30px;
+	}
 }

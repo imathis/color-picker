@@ -21,7 +21,7 @@ bun test <pattern>   # Run specific tests (e.g., bun test colorConversion)
 bun test:coverage    # Run tests with coverage report
 
 # Code Quality
-bun lint             # Run ESLint with max 0 warnings
+bun lint             # Run Biome linter with max 0 diagnostics
 
 # Deployment
 ./deploy.sh          # Deploy to production

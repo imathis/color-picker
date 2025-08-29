@@ -1,0 +1,15 @@
+repos:
+  - repo: local
+    hooks:
+      - id: biome-check
+        name: Biome Check
+        entry: bunx @biomejs/biome check --write
+        language: system
+        files: \.(js|jsx|ts|tsx|json|jsonc)$
+        pass_filenames: true
+      - id: biome-format
+        name: Biome Format
+        entry: bunx @biomejs/biome format --write
+        language: system
+        files: \.(js|jsx|ts|tsx|json|jsonc|css)$
+        pass_filenames: true

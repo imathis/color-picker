@@ -3,34 +3,34 @@
  */
 
 #app {
-  padding: 20px 10px;
-  margin: 0 auto;
-  text-align: center;
-  max-width: 100vw;
-  overflow-x: hidden;
+	padding: 20px 10px;
+	margin: 0 auto;
+	text-align: center;
+	max-width: 100vw;
+	overflow-x: hidden;
 }
 
 .main {
-  display: grid;
-  gap: 12px;
+	display: grid;
+	gap: 12px;
 }
 
 .color-picker {
-  display: grid;
-  grid-auto-flow: row;
-  grid-auto-columns: minmax(100px, 500px);
-  gap: 8px;
+	display: grid;
+	grid-auto-flow: row;
+	grid-auto-columns: minmax(100px, 500px);
+	gap: 8px;
 }
 
 .color-pickers {
-  display: grid;
-  gap: 25px;
+	display: grid;
+	gap: 25px;
 }
 
 /* Responsive Layout */
 @media screen and (min-width: 550px) {
-  .main {
-    grid-auto-columns: 125px 1fr;
-    grid-auto-flow: column;
-  }
+	.main {
+		grid-auto-columns: 125px 1fr;
+		grid-auto-flow: column;
+	}
 }

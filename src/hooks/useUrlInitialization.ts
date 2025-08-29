@@ -6,8 +6,8 @@ import { initializeColorFromUrl } from "../utils/colorStore";
  * This runs after rehydration to ensure URL takes precedence over localStorage.
  */
 export const useUrlInitialization = () => {
-  React.useEffect(() => {
-    // Initialize color from URL if present
-    initializeColorFromUrl();
-  }, []); // Run once on mount
+	React.useEffect(() => {
+		// Initialize color from URL if present
+		initializeColorFromUrl();
+	}, []); // Run once on mount
 };

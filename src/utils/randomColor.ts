@@ -6,12 +6,12 @@
  * @returns A random number or string with the unit appended.
  */
 const getRandom = (
-  min: number,
-  max: number,
-  unit?: string,
+	min: number,
+	max: number,
+	unit?: string,
 ): string | number => {
-  const num = Math.floor(Math.random() * (max - min + 1)) + min;
-  return unit ? `${num}${unit}` : num;
+	const num = Math.floor(Math.random() * (max - min + 1)) + min;
+	return unit ? `${num}${unit}` : num;
 };
 
 /**

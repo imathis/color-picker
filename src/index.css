@@ -4,18 +4,18 @@
  */
 
 /* 1. Global Styles (imported first) */
-@import './styles/globals/variables.css';
-@import './styles/globals/reset.css';
-@import './styles/globals/typography.css';
-@import './styles/globals/themes.css';
+@import "./styles/globals/variables.css";
+@import "./styles/globals/reset.css";
+@import "./styles/globals/typography.css";
+@import "./styles/globals/themes.css";
 
 /* 2. Layout Styles */
-@import './styles/layout/app.css';
-@import './styles/layout/footer.css';
+@import "./styles/layout/app.css";
+@import "./styles/layout/footer.css";
 
 /* 3. Component Styles */
-@import './styles/components/banner.css';
-@import './styles/components/inputs.css';
-@import './styles/components/slider.css';
-@import './styles/components/color-swatch.css';
-@import './styles/components/color-model-picker.css';
+@import "./styles/components/banner.css";
+@import "./styles/components/inputs.css";
+@import "./styles/components/slider.css";
+@import "./styles/components/color-swatch.css";
+@import "./styles/components/color-model-picker.css";

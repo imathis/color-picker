@@ -3,110 +3,110 @@
  */
 
 input {
-  max-width: 100%;
+	max-width: 100%;
 }
 
 input[type="text"],
 input[type="number"] {
-  color: var(--picker-input-color);
-  box-shadow: var(--picker-input-box-shadow);
-  background-color: var(--picker-input-bg);
-  text-shadow: var(--picker-text-shadow);
-  border-radius: 5px;
-  border: none;
-  transition: all 0.2s;
+	color: var(--picker-input-color);
+	box-shadow: var(--picker-input-box-shadow);
+	background-color: var(--picker-input-bg);
+	text-shadow: var(--picker-text-shadow);
+	border-radius: 5px;
+	border: none;
+	transition: all 0.2s;
 }
 
 input[type="text"]:focus,
 input[type="number"]:focus {
-  outline: 3px solid var(--picker-input-focus-ring);
-  outline-offset: 0px;
+	outline: 3px solid var(--picker-input-focus-ring);
+	outline-offset: 0px;
 }
 
 input:invalid {
-  background: var(--picker-input-invalid-bg);
-  box-shadow: var(--picker-input-invalid-box-shadow);
-  color: var(--picker-input-invalid-color);
+	background: var(--picker-input-invalid-bg);
+	box-shadow: var(--picker-input-invalid-box-shadow);
+	color: var(--picker-input-invalid-color);
 }
 
 input[data-copied] {
-  background: var(--picker-input-copied-bg);
-  color: var(--picker-input-copied-color);
+	background: var(--picker-input-copied-bg);
+	color: var(--picker-input-copied-color);
 }
 
 input[type="text"] {
-  text-align: center;
-  padding: 8px 0.6em;
-  font-size: 1em;
+	text-align: center;
+	padding: 8px 0.6em;
+	font-size: 1em;
 }
 
 input[type="number"] {
-  text-align: right;
-  padding: 2.5px 4px;
-  font-size: 1em;
-  display: none; /* Hidden on mobile */
+	text-align: right;
+	padding: 2.5px 4px;
+	font-size: 1em;
+	display: none; /* Hidden on mobile */
 }
 
 /* Remove spinner arrows */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
 }
 
 /* Color Code Input Container */
 .color-code {
-  position: relative;
+	position: relative;
 }
 
 .color-code input {
-  width: 100%;
+	width: 100%;
 }
 
 /* Copy Button */
 button.copy-code {
-  position: absolute;
-  right: -1px;
-  top: 0px;
-  bottom: 0;
-  background: transparent;
-  padding: 0 10px;
-  font-size: 1.6em;
-  border: transparent;
-  cursor: pointer;
+	position: absolute;
+	right: -1px;
+	top: 0px;
+	bottom: 0;
+	background: transparent;
+	padding: 0 10px;
+	font-size: 1.6em;
+	border: transparent;
+	cursor: pointer;
 }
 
 button.copy-code:focus {
-  outline: 3px solid var(--picker-input-focus-ring);
-  border-radius: 5px;
-  outline-offset: 0px;
+	outline: 3px solid var(--picker-input-focus-ring);
+	border-radius: 5px;
+	outline-offset: 0px;
 }
 
 button.copy-code svg {
-  opacity: 0.5;
-  fill: currentColor;
-  transition: opacity 0.2s;
-  transform: translateZ(0);
-  display: block;
-  position: relative;
+	opacity: 0.5;
+	fill: currentColor;
+	transition: opacity 0.2s;
+	transform: translateZ(0);
+	display: block;
+	position: relative;
 }
 
 button.copy-code:hover svg {
-  opacity: 1;
+	opacity: 1;
 }
 
 button.copy-code[data-copied] svg {
-  fill: var(--picker-input-copied-color);
-  opacity: 1;
+	fill: var(--picker-input-copied-color);
+	opacity: 1;
 }
 
 /* Responsive Adjustments */
 @media screen and (min-width: 550px) {
-  input[name="hex"] {
-    text-align: left;
-  }
+	input[name="hex"] {
+		text-align: left;
+	}
 
-  input[type="number"] {
-    display: initial; /* Show on desktop */
-  }
+	input[type="number"] {
+		display: initial; /* Show on desktop */
+	}
 }

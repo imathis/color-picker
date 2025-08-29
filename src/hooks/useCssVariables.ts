@@ -8,12 +8,12 @@ import { updateUiColor } from "../utils/uiUtils";
  * of how the state was updated (initial load, persist rehydration, user input).
  */
 export const useCssVariables = () => {
-  const colorObject = useColorStore((state) => state.colorObject);
-  const showP3 = useColorStore((state) => state.showP3);
-  const gamutGaps = useColorStore((state) => state.gamutGaps);
+	const colorObject = useColorStore((state) => state.colorObject);
+	const showP3 = useColorStore((state) => state.showP3);
+	const gamutGaps = useColorStore((state) => state.gamutGaps);
 
-  React.useEffect(() => {
-    // Update CSS variables whenever color or settings change
-    updateUiColor(colorObject, showP3, gamutGaps);
-  }, [colorObject, showP3, gamutGaps]);
+	React.useEffect(() => {
+		// Update CSS variables whenever color or settings change
+		updateUiColor(colorObject, showP3, gamutGaps);
+	}, [colorObject, showP3, gamutGaps]);
 };

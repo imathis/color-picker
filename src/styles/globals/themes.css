@@ -5,47 +5,47 @@
 
 /* Light Theme Overrides */
 @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #efefef;
-    
-    /* Track/Slider Adjustments */
-    --picker-track-bg: rgba(0, 0, 0, 0.05);
-    --picker-track-check: rgba(0, 0, 0, 0.2);
-    --picker-track-box-shadow:
-      rgba(0, 0, 0, 0.3) 0 1px inset, rgba(255, 255, 255, 0.6) 0 1px;
+	:root {
+		color: #213547;
+		background-color: #efefef;
 
-    --picker-slider-box-shadow:
-      rgba(255, 255, 255, 0.3) 0 1px 1px inset, rgba(0, 0, 0, 0.4) 0 0 0 1px;
+		/* Track/Slider Adjustments */
+		--picker-track-bg: rgba(0, 0, 0, 0.05);
+		--picker-track-check: rgba(0, 0, 0, 0.2);
+		--picker-track-box-shadow:
+			rgba(0, 0, 0, 0.3) 0 1px inset, rgba(255, 255, 255, 0.6) 0 1px;
 
-    /* Input Field Adjustments */
-    --picker-input-box-shadow:
-      #fff 0 1px 1px, rgba(0, 0, 0, 0.2) 0 1px 5px 0px inset;
-    --picker-input-bg: rgba(0, 0, 0, 0.05);
-    --picker-input-color: rgba(0, 0, 0, 0.8);
+		--picker-slider-box-shadow:
+			rgba(255, 255, 255, 0.3) 0 1px 1px inset, rgba(0, 0, 0, 0.4) 0 0 0 1px;
 
-    /* Validation State Adjustments */
-    --picker-input-invalid-bg: rgba(214 0 0 / 0.19);
-    --picker-input-invalid-box-shadow:
-      rgba(214 0 0 / 0.1) 0 1px 0, rgba(138 0 0 / 0.8) 0 1px 7px 0px inset;
-    --picker-input-invalid-color: #d60000;
+		/* Input Field Adjustments */
+		--picker-input-box-shadow:
+			#fff 0 1px 1px, rgba(0, 0, 0, 0.2) 0 1px 5px 0px inset;
+		--picker-input-bg: rgba(0, 0, 0, 0.05);
+		--picker-input-color: rgba(0, 0, 0, 0.8);
 
-    --picker-input-copied-bg: rgba(21 214 0 / 0.19);
-    --picker-input-copied-box-shadow:
-      rgba(21 214 0 / 0.1) 0 1px 0, rgba(14 138 0 / 0.8) 0 1px 7px 0px inset;
-    --picker-input-copied-color: #11a800;
+		/* Validation State Adjustments */
+		--picker-input-invalid-bg: rgba(214 0 0 / 0.19);
+		--picker-input-invalid-box-shadow:
+			rgba(214 0 0 / 0.1) 0 1px 0, rgba(138 0 0 / 0.8) 0 1px 7px 0px inset;
+		--picker-input-invalid-color: #d60000;
 
-    /* Visual Effects Adjustments */
-    --picker-dark-stripe: rgba(0, 0, 0, 0.03);
-    --picker-text-shadow-color: rgba(255, 255, 255, 1);
-    --picker-text-shadow: var(--picker-text-shadow-color) 0 1px 1px;
-    
-    /* Dynamic Accent Adjustments */
-    --picker-dynamic-accent: hwb(
-      var(--picker-hue) calc(clamp(0, var(--picker-whiteness), 35) * 1%)
-        calc(clamp(0, var(--picker-blackness), 45) * 1%)
-    );
-    --picker-dynamic-accent-footer: hwb(var(--picker-hue) 0% 25%);
-    --picker-input-focus-ring: hwb(var(--picker-hue) 0% 25%);
-  }
+		--picker-input-copied-bg: rgba(21 214 0 / 0.19);
+		--picker-input-copied-box-shadow:
+			rgba(21 214 0 / 0.1) 0 1px 0, rgba(14 138 0 / 0.8) 0 1px 7px 0px inset;
+		--picker-input-copied-color: #11a800;
+
+		/* Visual Effects Adjustments */
+		--picker-dark-stripe: rgba(0, 0, 0, 0.03);
+		--picker-text-shadow-color: rgba(255, 255, 255, 1);
+		--picker-text-shadow: var(--picker-text-shadow-color) 0 1px 1px;
+
+		/* Dynamic Accent Adjustments */
+		--picker-dynamic-accent: hwb(
+			var(--picker-hue) calc(clamp(0, var(--picker-whiteness), 35) * 1%)
+				calc(clamp(0, var(--picker-blackness), 45) * 1%)
+		);
+		--picker-dynamic-accent-footer: hwb(var(--picker-hue) 0% 25%);
+		--picker-input-focus-ring: hwb(var(--picker-hue) 0% 25%);
+	}
 }
