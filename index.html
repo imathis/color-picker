@@ -59,12 +59,18 @@
         <div class="footer-links">
           <span>
             <a href="https://github.com/imathis/hsl-picker">Source</a>
-            &copy; 2025
+            <span id="copyright-year">2026</span>
             <a href="https://brandonmathis.com">Brandon Mathis</a>
           </span>
           <span class="divider">|</span>
           <button onclick="toggleExplainer()">Questions?</button>
         </div>
+        <script data-cfasync="false">
+          (() => {
+            const yearEl = document.getElementById("copyright-year");
+            if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+          })();
+        </script>
         <div id="explainer" data-visible="false">
           <h3>HSL, HWB &amp; HSV: Hue</h3>
           <p>
