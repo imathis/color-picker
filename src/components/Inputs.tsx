@@ -59,7 +59,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(function Input(
 			} catch (_e) {
 				if (name === "hex" && value && !value.startsWith("#")) {
 					// For hex inputs, automatically add "#" prefix if missing
-					event.target.value = `#${value}`;
+					event.target.value = `#${value.replace(/^0x/i, "")}`;
 					onChange([name, event.target.value]);
 				} else {
 					console.error(`Invalid color: ${value}`);
